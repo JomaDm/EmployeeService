@@ -1,10 +1,10 @@
-# 📋 Employees Service - Documentación Integral del Proyecto
+# Employees Service - Documentación Integral del Proyecto
 
 Esta documentación consolida toda la arquitectura, configuración, código fuente y despliegue del microservicio **Employees Service** desarrollado en **Spring Boot**.
 
 ---
 
-## 🏗️ 1. Estructura de Paquetes y Clases
+## 1. Estructura de Paquetes y Clases
 
 El proyecto sigue una arquitectura en capas estándar de Spring Boot:
 
@@ -28,7 +28,7 @@ com.employeesservice.employees
 ---
 
 
-## 🐳 2. Configuración de Docker y Despliegue
+## 2. Configuración de Docker y Despliegue
 
 ### `Dockerfile`
 ```dockerfile
@@ -81,9 +81,20 @@ volumes:
   mysql_data:
 ```
 
+### 3. Documentación de la API con Swagger (OpenAPI)
+
+El proyecto puede documentar y permitir probar sus endpoints REST mediante **Swagger UI (3.1.1)** , utilizando `springdoc-openapi`. La interfaz presenta los endpoints disponibles, sus parámetros, los cuerpos de las solicitudes y las respuestas documentadas.
+
+### Acceso a la documentación
+
+Con la aplicación ejecutándose localmente en el puerto `8080`, visita:
+
+- **Swagger UI:** http://localhost:8080/swagger-ui/index.html
+- **OpenAPI JSON:** http://localhost:8080/v3/api-docs
+
 ---
 
-## 🚀 3. Comandos de Ejecución Rápidos
+## 4. Comandos de Ejecución Rápidos
 
 1. **Levantar todo el entorno (Base de datos + Aplicación):**
    ```bash
