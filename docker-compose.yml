@@ -1,0 +1,30 @@
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: mysql_db
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: pass
+      MYSQL_DATABASE: empleadosdb
+      MYSQL_USER: emp
+      MYSQL_PASSWORD: emp
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+
+  employees-service:
+    build: .
+    container_name: employees_service_app
+    restart: always
+    ports:
+      - "8080:8080"
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:mysql://mysql:3306/empleadosdb?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true
+      - SPRING_DATASOURCE_USERNAME=emp
+      - SPRING_DATASOURCE_PASSWORD=emp
+    depends_on:
+      - mysql
+
+volumes:
+  mysql_data:
